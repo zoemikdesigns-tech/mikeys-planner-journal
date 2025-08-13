@@ -1,0 +1,112 @@
+﻿{
+  "meta": { "version": 1, "created": "2025-08-13T00:00:00.000Z" },
+  "schedule": {
+    "Mon": [
+      {"time":"05:30–06:00","title":"Wake, hydrate, light stretch","done":false,"isBreak":false},
+      {"time":"06:00–07:30","title":"Home Gym (Day A)","done":false,"isBreak":false},
+      {"time":"07:30–08:00","title":"Shower + Breakfast","done":false,"isBreak":true},
+      {"time":"08:00–08:30","title":"Morning Journal (gratitude + top 3)","done":false,"isBreak":false},
+      {"time":"08:30–11:00","title":"Deep Work Block 1 (creative)","done":false,"isBreak":false},
+      {"time":"11:00–11:15","title":"Break","done":false,"isBreak":true},
+      {"time":"11:15–13:00","title":"Deep Work Block 2 (clients/outreach)","done":false,"isBreak":false},
+      {"time":"13:00–14:00","title":"Lunch + reset","done":false,"isBreak":true},
+      {"time":"14:00–15:45","title":"Focused Work Block 3 (revisions/learning)","done":false,"isBreak":false},
+      {"time":"15:45–16:00","title":"Break","done":false,"isBreak":true},
+      {"time":"16:00–17:45","title":"Focused Work Block 4 (finish tasks)","done":false,"isBreak":false},
+      {"time":"17:45–18:00","title":"Reflection Journal (wins, lessons)","done":false,"isBreak":false}
+    ],
+    "Tue": [
+      {"time":"05:30–06:00","title":"Wake, hydrate, light stretch","done":false,"isBreak":false},
+      {"time":"06:00–07:30","title":"Home Gym (Day B)","done":false,"isBreak":false},
+      {"time":"07:30–08:00","title":"Shower + Breakfast","done":false,"isBreak":true},
+      {"time":"08:00–08:30","title":"Morning Journal (gratitude + top 3)","done":false,"isBreak":false},
+      {"time":"08:30–11:00","title":"Deep Work Block 1 (creative)","done":false,"isBreak":false},
+      {"time":"11:00–11:15","title":"Break","done":false,"isBreak":true},
+      {"time":"11:15–13:00","title":"Deep Work Block 2 (clients/outreach)","done":false,"isBreak":false},
+      {"time":"13:00–14:00","title":"Lunch + reset","done":false,"isBreak":true},
+      {"time":"14:00–15:45","title":"Focused Work Block 3 (revisions/learning)","done":false,"isBreak":false},
+      {"time":"15:45–16:00","title":"Break","done":false,"isBreak":true},
+      {"time":"16:00–17:45","title":"Focused Work Block 4 (finish tasks)","done":false,"isBreak":false},
+      {"time":"17:45–18:00","title":"Reflection Journal (wins, lessons)","done":false,"isBreak":false}
+    ],
+    "Wed": [
+      {"time":"05:30–06:00","title":"Wake, hydrate, light stretch","done":false,"isBreak":false},
+      {"time":"06:00–07:30","title":"Home Gym (Day A)","done":false,"isBreak":false},
+      {"time":"07:30–08:00","title":"Shower + Breakfast","done":false,"isBreak":true},
+      {"time":"08:00–08:30","title":"Morning Journal (gratitude + top 3)","done":false,"isBreak":false},
+      {"time":"08:30–11:00","title":"Deep Work Block 1 (creative)","done":false,"isBreak":false},
+      {"time":"11:00–11:15","title":"Break","done":false,"isBreak":true},
+      {"time":"11:15–13:00","title":"Deep Work Block 2 (clients/outreach)","done":false,"isBreak":false},
+      {"time":"13:00–14:00","title":"Lunch + reset","done":false,"isBreak":true},
+      {"time":"14:00–15:45","title":"Focused Work Block 3 (revisions/learning)","done":false,"isBreak":false},
+      {"time":"15:45–16:00","title":"Break","done":false,"isBreak":true},
+      {"time":"16:00–17:45","title":"Focused Work Block 4 (finish tasks)","done":false,"isBreak":false},
+      {"time":"17:45–18:00","title":"Reflection Journal (wins, lessons)","done":false,"isBreak":false}
+    ],
+    "Thu": [
+      {"time":"05:30–06:00","title":"Wake, hydrate, light stretch","done":false,"isBreak":false},
+      {"time":"06:00–07:30","title":"Home Gym (Day B)","done":false,"isBreak":false},
+      {"time":"07:30–08:00","title":"Shower + Breakfast","done":false,"isBreak":true},
+      {"time":"08:00–08:30","title":"Morning Journal (gratitude + top 3)","done":false,"isBreak":false},
+      {"time":"08:30–11:00","title":"Deep Work Block 1 (creative)","done":false,"isBreak":false},
+      {"time":"11:00–11:15","title":"Break","done":false,"isBreak":true},
+      {"time":"11:15–13:00","title":"Deep Work Block 2 (clients/outreach)","done":false,"isBreak":false},
+      {"time":"13:00–14:00","title":"Lunch + reset","done":false,"isBreak":true},
+      {"time":"14:00–15:45","title":"Focused Work Block 3 (revisions/learning)","done":false,"isBreak":false},
+      {"time":"15:45–16:00","title":"Break","done":false,"isBreak":true},
+      {"time":"16:00–17:45","title":"Focused Work Block 4 (finish tasks)","done":false,"isBreak":false},
+      {"time":"17:45–18:00","title":"Reflection Journal (wins, lessons)","done":false,"isBreak":false}
+    ],
+    "Fri": [
+      {"time":"05:30–06:00","title":"Wake, hydrate, light stretch","done":false,"isBreak":false},
+      {"time":"06:00–07:30","title":"Home Gym (Day A)","done":false,"isBreak":false},
+      {"time":"07:30–08:00","title":"Shower + Breakfast","done":false,"isBreak":true},
+      {"time":"08:00–08:30","title":"Morning Journal (gratitude + top 3)","done":false,"isBreak":false},
+      {"time":"08:30–11:00","title":"Deep Work Block 1 (creative)","done":false,"isBreak":false},
+      {"time":"11:00–11:15","title":"Break","done":false,"isBreak":true},
+      {"time":"11:15–13:00","title":"Deep Work Block 2 (clients/outreach)","done":false,"isBreak":false},
+      {"time":"13:00–14:00","title":"Lunch + reset","done":false,"isBreak":true},
+      {"time":"14:00–15:45","title":"Focused Work Block 3 (revisions/learning)","done":false,"isBreak":false},
+      {"time":"15:45–16:00","title":"Break","done":false,"isBreak":true},
+      {"time":"16:00–17:45","title":"Focused Work Block 4 (finish tasks)","done":false,"isBreak":false},
+      {"time":"17:45–18:00","title":"Reflection Journal (wins, lessons)","done":false,"isBreak":false}
+    ]
+  },
+  "gym": {
+    "currentProgram": "No-Cardio Home DB (6kg)",
+    "week": 1,
+    "progression": { "addedSetsEvery": 4, "maxReps": 15 },
+    "plans": {
+      "A": [
+        {"name":"Dumbbell Shoulder Press","sets":3,"targetReps":10,"type":"reps"},
+        {"name":"Bicep Curls","sets":3,"targetReps":10,"type":"reps"},
+        {"name":"Dumbbell Floor Press","sets":3,"targetReps":10,"type":"reps"},
+        {"name":"Lateral Raises","sets":3,"targetReps":12,"type":"reps"},
+        {"name":"One-Arm Dumbbell Row","sets":3,"targetReps":12,"type":"reps"},
+        {"name":"Plank","sets":3,"targetTime":"30s","type":"time"}
+      ],
+      "B": [
+        {"name":"Goblet Squat","sets":3,"targetReps":12,"type":"reps"},
+        {"name":"Dumbbell Lunge (each leg)","sets":3,"targetReps":10,"type":"reps"},
+        {"name":"DB Romanian Deadlift","sets":3,"targetReps":12,"type":"reps"},
+        {"name":"Calf Raises (bodyweight)","sets":3,"targetReps":20,"type":"reps"},
+        {"name":"Russian Twists","sets":3,"targetReps":16,"type":"reps"},
+        {"name":"Side Plank (each side)","sets":3,"targetTime":"20s","type":"time"}
+      ]
+    },
+    "log": {
+      "Mon": {"type":"Day A","completed":false,"notes":""},
+      "Tue": {"type":"Day B","completed":false,"notes":""},
+      "Wed": {"type":"Day A","completed":false,"notes":""},
+      "Thu": {"type":"Day B","completed":false,"notes":""},
+      "Fri": {"type":"Day A","completed":false,"notes":""}
+    }
+  },
+  "journal": {
+    "Mon": {"morning":"","evening":""},
+    "Tue": {"morning":"","evening":""},
+    "Wed": {"morning":"","evening":""},
+    "Thu": {"morning":"","evening":""},
+    "Fri": {"morning":"","evening":""}
+  }
+}

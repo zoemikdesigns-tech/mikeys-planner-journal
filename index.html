@@ -1,0 +1,70 @@
+﻿<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mikey&apos;s Planner &amp; Journal</title>
+  <link rel="stylesheet" href="resources/style.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Mikey&apos;s Planner &amp; Journal</h1>
+    <div class="week-controls">
+      <button id="checkUpdates">Check for Updates</button>
+      <button id="exportSummary">Export This Week</button>
+      <button id="exportLastWeek">Export Last Week</button>
+      <button id="importWeek">Import Week</button>
+      <button id="incrementWeek">Level Up Week</button>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-button active" data-tab="home">Home</button>
+    <button class="tab-button" data-tab="schedule">Schedule</button>
+    <button class="tab-button" data-tab="gym">Gym</button>
+    <button class="tab-button" data-tab="journal">Journal</button>
+    <button class="tab-button" data-tab="review">Weekly Review</button>
+  </nav>
+
+  <main>
+    <section id="home" class="tab active">
+      <div class="panel">
+        <h2>Today</h2>
+        <div id="dailyCard" class="daily-card">
+          <div class="motivation" id="motivationText"></div>
+          <div class="home-grid">
+            <div class="stat"><div class="stat-label">Current Streak</div><div class="stat-value" id="streakNow">0</div></div>
+            <div class="stat"><div class="stat-label">Best Streak</div><div class="stat-value" id="streakBest">0</div></div>
+            <div class="stat"><div class="stat-label">Today Completion</div><div class="stat-value" id="todayPct">0%</div></div>
+            <div class="stat"><div class="stat-label">This Week</div><div class="stat-value" id="weekPct">0%</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="panel"><h3>This Week at a Glance</h3><div id="homeWeekGlance"></div></div>
+    </section>
+
+    <section id="schedule" class="tab"><div id="scheduleContainer"></div></section>
+
+    <section id="gym" class="tab">
+      <div id="gymInfo"></div>
+      <div id="gymContainer"></div>
+    </section>
+
+    <section id="journal" class="tab">
+      <div class="grid two">
+        <div class="panel"><h3>Morning Journal (10 prompts)</h3><div id="morningPrompts"></div></div>
+        <div class="panel"><h3>Reflection Journal (10 prompts)</h3><div id="eveningPrompts"></div></div>
+      </div>
+    </section>
+
+    <section id="review" class="tab">
+      <div id="reviewContainer"></div>
+      <div class="panel"><h3>History (restore a past week)</h3><div id="historyContainer"></div></div>
+    </section>
+  </main>
+
+  <footer class="app-footer"><button id="saveBtn">Save</button><span id="saveStatus"></span></footer>
+  <script src="resources/renderer.js"></script>
+</body>
+</html>
