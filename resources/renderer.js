@@ -1,4 +1,7 @@
-﻿const $ = (sel) => document.querySelector(sel);
+﻿const updStatusHook = (msg)=>{ const s=document.getElementById('saveStatus'); if(s){ s.textContent=msg; setTimeout(()=>{ if(s.textContent===msg) s.textContent=''; }, 8000); } };
+if (window.api && window.api.onUpdateStatus) { window.api.onUpdateStatus(updStatusHook); }
+
+const $ = (sel) => document.querySelector(sel);
 let state = null;
 
 function el(tag, attrs = {}, ...children) {
@@ -238,3 +241,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   (async ()=>{ state = await window.api.loadData(); if (!state.meta) state.meta = {}; renderAll(); })();
 });
+
+/* === Update UI wiring === */
+(function(){
+  const updStatusHook = (msg)=>{
+    const s=document.getElementById('saveStatus');
+    if(s){ s.textContent=msg; setTimeout(()=>{ if(s.textContent===msg) s.textContent=''; }, 8000); }
+  };
+  if (window.api && window.api.onUpdateStatus) { window.api.onUpdateStatus(updStatusHook); }
+
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const cu = document.getElementById('checkUpdates');
+    if (cu) {
+      cu.addEventListener('click', async ()=>{
+        const s = document.getElementById('saveStatus');
+        if (s) s.textContent = 'Checking for updates…';
+        try {
+          const res = await window.api.checkForUpdates();
+          if (!res?.ok && s) s.textContent = 'Update check failed';
+        } catch {
+          if (s) s.textContent = 'Update check failed';
+        }
+        setTimeout(()=>{
+          const s2=document.getElementById('saveStatus');
+          if (s2 && s2.textContent==='Checking for updates…') s2.textContent='';
+        }, 4000);
+      });
+    }
+  });
+})();
