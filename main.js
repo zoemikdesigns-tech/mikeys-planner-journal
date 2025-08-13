@@ -3,6 +3,37 @@ const { autoUpdater } = require("electron-updater");
 const path = require("path");
 const fs = require("fs");
 
+
+//
+// ----- Stable userData path + migration (use one folder across all versions) -----
+const USER_DIR = path.join(app.getPath('appData'), 'MikeyPlannerJournal');
+app.setPath('userData', USER_DIR);
+
+// Try to migrate old data files into this new folder (first run only)
+(function migrateOldData(){
+  try {
+    const targetFile = path.join(USER_DIR, 'planner_data.json');
+    if (fs.existsSync(targetFile)) return; // already migrated/exists
+
+    const candidates = [
+      // Possible old app names/folders from earlier builds
+      path.join(app.getPath('appData'), 'PlannerJournal'),
+      path.join(app.getPath('appData'), "Mikey's Planner & Journal"),
+      path.join(app.getPath('appData'), 'planner-journal-app'),
+      path.join(app.getPath('appData'), 'Planner & Journal'),
+    ];
+    for (const dir of candidates) {
+      try {
+        const f = path.join(dir, 'planner_data.json');
+        if (fs.existsSync(f)) {
+          fs.mkdirSync(USER_DIR, { recursive: true });
+          fs.copyFileSync(f, targetFile);
+          break;
+        }
+      } catch {}
+    }
+  } catch {}
+})();
 // ----- Paths & data helpers -----
 const DATA_FILE = path.join(app.getPath("userData"), "planner_data.json");
 function ensureDataFile() {
@@ -167,3 +198,4 @@ ipcMain.handle("check-for-updates", async () => {
   try { await autoUpdater.checkForUpdatesAndNotify(); return { ok:true }; }
   catch (e) { return { ok:false, error:String(e) }; }
 });
+
