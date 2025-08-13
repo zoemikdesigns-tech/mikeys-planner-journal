@@ -42,7 +42,21 @@ function ensureDataFile() {
     fs.writeFileSync(DATA_FILE, JSON.stringify(defaultData, null, 2));
   }
 }
-function readData() { ensureDataFile(); return JSON.parse(fs.readFileSync(DATA_FILE, "utf-8")); }
+function readData() {
+  ensureDataFile();
+  try {
+    const raw = fs.readFileSync(DATA_FILE, "utf-8");
+    return JSON.parse(raw);
+  } catch (e) {
+    try {
+      const backup = DATA_FILE.replace(".json", `_corrupt_${Date.now()}.json`);
+      fs.copyFileSync(DATA_FILE, backup);
+    } catch {}
+    const defaultData = require(path.join(__dirname, "resources", "defaultData.json"));
+    fs.writeFileSync(DATA_FILE, JSON.stringify(defaultData, null, 2));
+    return defaultData;
+  }
+}
 function writeData(data) { fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2)); }
 
 // ----- Week helpers & history -----
@@ -198,4 +212,5 @@ ipcMain.handle("check-for-updates", async () => {
   try { await autoUpdater.checkForUpdatesAndNotify(); return { ok:true }; }
   catch (e) { return { ok:false, error:String(e) }; }
 });
+
 
