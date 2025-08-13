@@ -1,45 +1,184 @@
-﻿:root { --bg:#0f1115; --panel:#151821; --accent:#7CD6CF; --text:#E6E8EE; --muted:#9aa3b2; --good:#8bd17c; --warn:#ffbf69; }
+﻿/* === Mikey's Planner & Journal — Modern Dark Theme === */
+
+/* Color tokens (deep neutral base + soft neons for accents) */
+:root{
+  --bg:#0b0e14;
+  --bg-elev: #111623;
+  --panel:#121826;
+  --panel-2:#0f1422;
+  --text:#E9ECF2;
+  --muted:#9AA3B2;
+  --line:#232a3a;
+  --accent:#7CD6CF;   /* teal mint */
+  --accent-2:#A78BFA; /* soft purple for secondary accents */
+  --good:#8bd17c;
+  --warn:#ffbf69;
+  --danger:#ff6b6b;
+  --shadow: 0 10px 30px rgba(0,0,0,.35), 0 2px 8px rgba(0,0,0,.25);
+}
+
 *{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--text)}
-.app-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:var(--panel);border-bottom:1px solid #222637}
-.app-header h1{margin:0;font-size:20px}
-.week-controls button{margin-left:8px;padding:8px 12px;background:var(--accent);border:none;border-radius:8px;color:#061b18;font-weight:600;cursor:pointer}
-.tabs{display:flex;gap:8px;padding:8px 10px;background:#11141b;border-bottom:1px solid #222637}
-.tab-button{background:#1a1f2c;color:var(--text);border:1px solid #222637;border-radius:8px;padding:8px 12px;cursor:pointer}
-.tab-button.active{background:var(--accent);color:#061b18;border-color:transparent}
-main{padding:16px}
-.panel{background:var(--panel);border:1px solid #222637;border-radius:12px;padding:16px;margin-bottom:12px}
-.grid{display:grid;gap:12px}
-.grid.two{grid-template-columns:repeat(2,1fr)}
-.row{display:flex;align-items:center;justify-content:space-between;padding:8px;border-radius:8px;background:#1a1f2c;border:1px solid #222637}
-.row.break{opacity:.75}
-.row .time{color:var(--muted);width:110px}
-.row .title{flex:1;padding:0 8px}
-.row input[type="checkbox"]{transform:scale(1.2)}
-h2,h3{margin:10px 0}
-label.block{display:block;margin:8px 0 4px;color:var(--muted)}
-textarea{width:100%;min-height:120px;padding:12px;border-radius:10px;border:1px solid #222637;background:#0e1017;color:#E6E8EE;resize:vertical}
-.badge{display:inline-block;padding:4px 8px;border-radius:999px;background:#1a1f2c;border:1px solid #222637;color:var(--muted);font-size:12px;margin-right:8px}
-.badge.good{background:#0d1a12;color:var(--good);border-color:#204027}
-.badge.warn{background:#1a1410;color:var(--warn);border-color:#3a2a14}
-.app-footer{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-top:1px solid #222637;background:#11141b}
-#saveBtn{padding:10px 14px;background:var(--accent);border:none;border-radius:10px;color:#061b18;font-weight:700;cursor:pointer}
-#saveStatus{color:var(--muted)}
-.small{font-size:12px;color:var(--muted)}
-ul.clean{list-style:none;padding:0;margin:0}
-ul.clean li{margin:4px 0}
-.tab{display:none}
-.tab.active{display:block}
+::selection{ background:rgba(124,214,207,.25); }
 
-/* Home */
-.daily-card{display:flex;flex-direction:column;gap:12px}
-.motivation{font-size:16px;line-height:1.6;background:#10131a;border:1px solid #222637;border-radius:12px;padding:12px}
-.home-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.stat{background:#10131a;border:1px solid #222637;border-radius:12px;padding:12px;text-align:center}
-.stat-label{color:var(--muted);font-size:12px;margin-bottom:6px}
-.stat-value{font-size:24px;font-weight:700}
+/* Background with subtle depth (radial glow + grain hint) */
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color:var(--text);
+  background:
+    radial-gradient(1000px 600px at 20% -10%, rgba(124,214,207,.08), transparent 60%),
+    radial-gradient(900px 500px at 110% 0%, rgba(167,139,250,.06), transparent 60%),
+    linear-gradient(180deg, #0b0e14 0%, #0a0e16 100%);
+  min-height:100vh;
+}
 
-/* Guided prompts */
-.prompt{padding:12px 0;border-top:1px solid #222637}
-.prompt h4{margin:0 0 8px 0;font-weight:700}
-.prompt textarea{min-height:130px}
+/* App header with glassy surface + bottom hairline */
+.app-header{
+  position:sticky; top:0; z-index:10;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 20px;
+  background: linear-gradient(180deg, rgba(18,24,38,.85), rgba(18,24,38,.65));
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 4px 16px rgba(0,0,0,.25);
+}
+.app-header h1{ margin:0; font-size:18px; letter-spacing:.2px; opacity:.95 }
+
+.week-controls button{
+  margin-left:8px; padding:10px 14px;
+  background: linear-gradient(180deg, var(--accent), #62bdb6);
+  color:#032e2a; border:none; border-radius:12px; font-weight:700; cursor:pointer;
+  box-shadow: 0 8px 18px rgba(124,214,207,.25), 0 2px 6px rgba(0,0,0,.25);
+  transition: transform .08s ease, box-shadow .2s ease, filter .2s ease;
+}
+.week-controls button:hover{ filter:saturate(1.08) brightness(1.03) }
+.week-controls button:active{ transform: translateY(1px) }
+
+/* Tabs */
+.tabs{
+  display:flex; gap:10px; padding:10px 12px;
+  background: linear-gradient(180deg, rgba(15,20,32,.75), rgba(15,20,32,.55));
+  border-bottom:1px solid var(--line);
+}
+.tab-button{
+  background: #151c2b;
+  color:var(--text);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:10px 14px;
+  cursor:pointer;
+  transition: all .18s ease;
+}
+.tab-button:hover{ box-shadow: 0 6px 16px rgba(0,0,0,.25) }
+.tab-button.active{
+  background: linear-gradient(180deg, var(--accent-2), #8e71ff);
+  color:white; border-color:transparent;
+  box-shadow: 0 10px 24px rgba(167,139,250,.28);
+}
+
+main{ padding:18px; }
+
+/* Panels (cards) */
+.panel{
+  background: linear-gradient(180deg, rgba(18,24,38,.88), rgba(15,20,32,.88));
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:14px;
+  margin-bottom:14px;
+  box-shadow: var(--shadow);
+  animation: rise .25s ease;
+}
+@keyframes rise{ from{ transform:translateY(2px); opacity:.92 } to{ transform:translateY(0); opacity:1 } }
+
+h2,h3{ margin:10px 0 12px 0; letter-spacing:.2px }
+h3{ font-size:16px; color:#f0f2f7 }
+
+label.block{ display:block; margin:10px 0 6px; color:var(--muted); font-size:13px }
+
+/* Schedule rows */
+.row{
+  display:grid; grid-template-columns: 120px 1fr auto;
+  align-items:center; gap:10px;
+  padding:10px 12px; border-radius:12px;
+  background: #0f1524;
+  border:1px solid #1b2340;
+  transition: background .15s ease, border-color .15s ease, transform .08s ease;
+  margin:8px 0;
+}
+.row:hover{ background:#111a30; border-color:#243054 }
+.row:active{ transform: translateY(1px) }
+.row.break{ opacity:.78; background:#0e1320; }
+
+/* Bits inside rows */
+.row .time{ color:var(--muted); font-variant-numeric: tabular-nums }
+.row .title{ color:#dfe6f3 }
+
+/* Checkboxes (use system accent for accessibility) */
+input[type="checkbox"]{ transform: scale(1.2); accent-color: var(--accent); }
+
+/* Textareas */
+textarea{
+  width:100%; min-height:120px;
+  padding:12px 12px;
+  border-radius:12px;
+  border:1px solid #202944;
+  background: #0c1120;
+  color:var(--text); resize:vertical;
+  outline:none;
+  transition: border-color .15s ease, box-shadow .2s ease, background .2s ease;
+}
+textarea:focus{
+  border-color: #3a4ea8;
+  box-shadow: 0 0 0 3px rgba(58,78,168,.25);
+  background:#0c1224;
+}
+
+/* Badges (status chips) */
+.badge{
+  display:inline-block; padding:6px 10px; border-radius:999px;
+  background:#131a2a; border:1px solid #243054; color:#c7d0e4; font-size:12px; margin-right:8px
+}
+.badge.good{ background:#0f1a12; color:var(--good); border-color:#1e3b27 }
+.badge.warn{ background:#1a1410; color:var(--warn); border-color:#3a2a14 }
+
+/* Footer */
+.app-footer{
+  position:sticky; bottom:0; z-index:5;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 18px; border-top:1px solid var(--line);
+  background: linear-gradient(0deg, rgba(15,20,32,.9), rgba(15,20,32,.65));
+  backdrop-filter: blur(10px);
+}
+#saveBtn{
+  padding:10px 16px; font-weight:800;
+  background: linear-gradient(180deg, var(--accent), #62bdb6);
+  border:none; border-radius:12px; color:#06231f; cursor:pointer;
+  box-shadow: 0 10px 22px rgba(124,214,207,.28), 0 2px 8px rgba(0,0,0,.3);
+  transition: transform .08s ease, filter .2s ease;
+}
+#saveBtn:hover{ filter:brightness(1.03) saturate(1.05) }
+#saveBtn:active{ transform: translateY(1px) }
+#saveStatus{ color:var(--muted) }
+
+/* Utilities */
+.small{ font-size:12px; color:var(--muted) }
+ul.clean{ list-style:none; padding:0; margin:0 }
+ul.clean li{ margin:6px 0; color:#cdd5e7 }
+.tab{ display:none } .tab.active{ display:block }
+
+/* Scrollbar polish (Chromium) */
+*::-webkit-scrollbar{ width:10px; height:10px }
+*::-webkit-scrollbar-thumb{
+  background: linear-gradient(180deg, #27324c, #1e2842);
+  border-radius:10px; border:2px solid #0c1220;
+}
+*::-webkit-scrollbar-track{ background: transparent }
+
+/* Buttons inside panels (like “Level Up Week”, etc.) */
+.panel button{
+  background:#1a2236; border:1px solid #27324c; color:#dfe6f3;
+  padding:8px 12px; border-radius:10px; cursor:pointer;
+  transition: all .18s ease;
+}
+.panel button:hover{ background:#202a44; box-shadow: 0 8px 18px rgba(0,0,0,.28) }
+.panel button:active{ transform: translateY(1px) }
