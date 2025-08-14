@@ -1,72 +1,70 @@
-﻿{
-    "name":  "mikeys-planner-journal",
-    "version":  "1.0.6",
-    "description":  "Mikey\u0027s Planner \u0026 Journal ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â guided journaling, planner, gym tracker, history, and weekly review.",
-    "main":  "main.js",
-    "author":  "You",
-    "license":  "MIT",
-    "scripts":  {
-                    "start":  "electron .",
-                    "make":  "electron-forge make",
-                    "dist":  "electron-builder --win",
-                    "publish":  "electron-builder --win --publish always"
+{
+    "name": "mikeys-planner-journal",
+    "version": "1.0.7",
+    "description": "Mikey's Planner & Journal ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â guided journaling, planner, gym tracker, history, and weekly review.",
+    "main": "main.js",
+    "author": "You",
+    "license": "MIT",
+    "scripts": {
+        "start": "electron .",
+        "make": "electron-forge make",
+        "dist": "electron-builder --win",
+        "publish": "electron-builder --win --publish always"
+    },
+    "devDependencies": {
+        "@electron-forge/cli": "^7.4.0",
+        "@electron-forge/maker-squirrel": "^7.4.0",
+        "@electron-forge/maker-zip": "^7.4.0",
+        "electron": "^31.0.0",
+        "electron-builder": "^26.0.12"
+    },
+    "config": {
+        "forge": {
+            "packagerConfig": {},
+            "makers": [
+                {
+                    "name": "@electron-forge/maker-squirrel",
+                    "config": {
+                        "name": "PlannerJournal"
+                    }
                 },
-    "devDependencies":  {
-                            "@electron-forge/cli":  "^7.4.0",
-                            "@electron-forge/maker-squirrel":  "^7.4.0",
-                            "@electron-forge/maker-zip":  "^7.4.0",
-                            "electron":  "^31.0.0",
-                            "electron-builder":  "^26.0.12"
-                        },
-    "config":  {
-                   "forge":  {
-                                 "packagerConfig":  {
-
-                                                    },
-                                 "makers":  [
-                                                {
-                                                    "name":  "@electron-forge/maker-squirrel",
-                                                    "config":  {
-                                                                   "name":  "PlannerJournal"
-                                                               }
-                                                },
-                                                {
-                                                    "name":  "@electron-forge/maker-zip",
-                                                    "platforms":  [
-                                                                      "win32"
-                                                                  ]
-                                                }
-                                            ]
-                             }
-               },
-    "dependencies":  {
-                         "electron-updater":  "^6.6.2"
-                     },
-    "build":  {
-                  "appId":  "com.mikey.plannerjournal",
-                  "artifactName":  "Mikeys-Planner-Journal--Setup.",
-                  "win":  {
-                              "target":  [
-                                             "nsis"
-                                         ]
-                          },
-                  "nsis":  {
-                               "oneClick":  true,
-                               "perMachine":  false,
-                               "shortcutName":  "Mikey\u0027s Planner \u0026 Journal",
-                               "createDesktopShortcut":  "always",
-                               "allowToChangeInstallationDirectory":  false
-                           },
-                  "publish":  [
-                                  {
-                                      "provider":  "github",
-                                      "owner":  "zoemikdesigns-tech",
-                                      "repo":  "mikeys-planner-journal"
-                                  }
-                              ],
-                  "directories":  {
-                                      "output":  "dist"
-                                  }
-              },
-    "productName":  "Mikey\u0027s Planner \u0026 Journal"
+                {
+                    "name": "@electron-forge/maker-zip",
+                    "platforms": [
+                        "win32"
+                    ]
+                }
+            ]
+        }
+    },
+    "dependencies": {
+        "electron-updater": "^6.6.2"
+    },
+    "build": {
+        "appId": "com.mikey.plannerjournal",
+        "artifactName": "Mikeys-Planner-Journal--Setup.",
+        "win": {
+            "target": [
+                "nsis"
+            ]
+        },
+        "nsis": {
+            "oneClick": true,
+            "perMachine": false,
+            "shortcutName": "Mikey's Planner & Journal",
+            "createDesktopShortcut": "always",
+            "allowToChangeInstallationDirectory": false
+        },
+        "publish": [
+            {
+                "provider": "github",
+                "owner": "zoemikdesigns-tech",
+                "repo": "mikeys-planner-journal"
+            }
+        ],
+        "directories": {
+            "output": "dist"
+        }
+    },
+    "productName": "Mikey's Planner & Journal"
 }
